@@ -12,23 +12,23 @@
         IE = !!window.createPopup,
         IE6 = IE && typeof document.documentElement.currentStyle.minWidth === 'undefined',
         IElt9 = IE && !document.defaultView,
-        debounce = { id: null, wait: 50, maxWait: 300, lastCalled: 0 }
+        debounce = { id: null, wait: 50, maxWait: 250, lastCalled: 0 }
     ;
 
     // make sure the tips' position is updated on resize
-    function handleWindowResize() {
-        for (var i=0, l=tips.length; i<l; i++) { tips[i].refresh(true); }
+    function handleWindowResize(async) {
+        for (var i=0, l=tips.length; i<l; i++) { tips[i].refresh(async !== false); }
         debounce.id = null;
         debounce.lastCalled = +(new Date());
     }
 
     $(window).resize(function() {
         if (!tips.length) { return; }
-        
+
         void (debounce.id && window.clearTimeout(debounce.id));
 
         if ((new Date()) - debounce.lastCalled > debounce.maxWait) {
-            handleWindowResize();
+            handleWindowResize(false);
         } else {
             debounce.id = window.setTimeout(handleWindowResize, debounce.wait);
         }
