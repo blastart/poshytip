@@ -563,33 +563,33 @@
     };
 
     // default settings
+    $.fn.poshytip.debounce = debounce;      // a reference of the debounce object to modify.
     $.fn.poshytip.defaults = {
-        debounce:        debounce,     // refrence for debounce options
-        content:         '[title]',    // content to display ('[title]', 'string', element, function(updateCallback){...}, jQuery)
-        className:        'tip-yellow',    // class for the tips
-        idName:            '',        // id for the tip
-        bgImageFrameSize:    10,        // size in pixels for the background-image (if set in CSS) frame around the inner content of the tip
-        showTimeout:        500,        // timeout before showing the tip (in milliseconds 1000 == 1 second)
-        hideTimeout:        100,        // timeout before hiding the tip
-        timeOnScreen:        0,        // timeout before automatically hiding the tip after showing it (set to > 0 in order to activate)
-        showOn:            'hover',    // handler for showing the tip ('hover', 'focus', 'none') - use 'none' to trigger it manually
-        liveEvents:        false,        // use live events
-        alignTo:        'cursor',    // align/position the tip relative to ('cursor', 'target')
-        alignX:            'right',    // horizontal alignment for the tip relative to the mouse cursor or the target element
-                            // ('right', 'center', 'left', 'inner-left', 'inner-right') - 'inner-*' matter if alignTo:'target'
-        alignY:            'top',        // vertical alignment for the tip relative to the mouse cursor or the target element
-                            // ('bottom', 'center', 'top', 'inner-bottom', 'inner-top') - 'inner-*' matter if alignTo:'target'
-        offsetX:        -22,        // offset X pixels from the default position - doesn't matter if alignX:'center'
-        offsetY:        18,        // offset Y pixels from the default position - doesn't matter if alignY:'center'
-        keepInViewport:        true,        // reposition the tooltip if needed to make sure it always appears inside the viewport
-        allowTipHover:        true,        // allow hovering the tip without hiding it onmouseout of the target - matters only if showOn:'hover'
-        followCursor:        false,        // if the tip should follow the cursor - matters only if showOn:'hover' and alignTo:'cursor'
-        fade:             true,        // use fade animation
-        slide:             true,        // use slide animation
-        slideOffset:         8,        // slide animation offset
-        showAniDuration:     300,        // show animation duration - set to 0 if you don't want show animation
-        hideAniDuration:     300,        // hide animation duration - set to 0 if you don't want hide animation
-        refreshAniDuration:    200        // refresh animation duration - set to 0 if you don't want animation when updating the tooltip asynchronously
+        content:            '[title]',      // content to display ('[title]', 'string', element, function(updateCallback){...}, jQuery)
+        className:          'tip-yellow',   // class for the tips
+        idName:             '',             // id for the tip
+        bgImageFrameSize:   10,             // size in pixels for the background-image (if set in CSS) frame around the inner content of the tip
+        showTimeout:        500,            // timeout before showing the tip (in milliseconds 1000 == 1 second)
+        hideTimeout:        100,            // timeout before hiding the tip
+        timeOnScreen:       0,              // timeout before automatically hiding the tip after showing it (set to > 0 in order to activate)
+        showOn:             'hover',        // handler for showing the tip ('hover', 'focus', 'none') - use 'none' to trigger it manually
+        liveEvents:         false,          // use live events
+        alignTo:            'cursor',       // align/position the tip relative to ('cursor', 'target')
+        alignX:             'right',        // horizontal alignment for the tip relative to the mouse cursor or the target element
+                                            //      ('right', 'center', 'left', 'inner-left', 'inner-right') - 'inner-*' matter if alignTo:'target'
+        alignY:             'top',          // vertical alignment for the tip relative to the mouse cursor or the target element
+                                            //      ('bottom', 'center', 'top', 'inner-bottom', 'inner-top') - 'inner-*' matter if alignTo:'target'
+        offsetX:            -22,            // offset X pixels from the default position - doesn't matter if alignX:'center'
+        offsetY:            18,             // offset Y pixels from the default position - doesn't matter if alignY:'center'
+        keepInViewport:     true,           // reposition the tooltip if needed to make sure it always appears inside the viewport
+        allowTipHover:      true,           // allow hovering the tip without hiding it onmouseout of the target - matters only if showOn:'hover'
+        followCursor:       false,          // if the tip should follow the cursor - matters only if showOn:'hover' and alignTo:'cursor'
+        fade:               true,           // use fade animation
+        slide:              true,           // use slide animation
+        slideOffset:        8,              // slide animation offset
+        showAniDuration:    300,            // show animation duration - set to 0 if you don't want show animation
+        hideAniDuration:    300,            // hide animation duration - set to 0 if you don't want hide animation
+        refreshAniDuration: 200             // refresh animation duration - set to 0 if you don't want animation when updating the tooltip asynchronously
     };
 
 })(jQuery, document, window);
