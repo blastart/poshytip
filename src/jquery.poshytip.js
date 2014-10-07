@@ -12,7 +12,7 @@
         IE = !!window.createPopup,
         IE6 = IE && typeof document.documentElement.currentStyle.minWidth === 'undefined',
         IElt9 = IE && !document.defaultView,
-        debounce = { id: null, wait: 50, maxWait: 300, lastCalled : 0 }
+        debounce = { id: null, wait: 50, maxWait: 300, lastCalled: 0 }
     ;
 
     // make sure the tips' position is updated on resize
@@ -23,6 +23,8 @@
     }
 
     $(window).resize(function() {
+        if (!tips.length) { return; }
+        
         void (debounce.id && window.clearTimeout(debounce.id));
 
         if ((new Date()) - debounce.lastCalled > debounce.maxWait) {
