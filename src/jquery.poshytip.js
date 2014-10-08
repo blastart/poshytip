@@ -17,7 +17,9 @@
 
     // make sure the tips' position is updated on resize
     function handleWindowResize(async) {
-        for (var i=0, l=tips.length; i<l; i++) { tips[i].refresh(async !== false); }
+        for (var i=0, l=tips.length; i<l; i++) {
+            void (tips[i].$tip.data('active') && tips[i].refresh(async !== false));
+        }
         debounce.id = null;
         debounce.lastCalled = +(new Date());
     }
