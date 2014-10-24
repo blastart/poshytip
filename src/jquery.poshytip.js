@@ -24,7 +24,7 @@
         debounce.lastCalled = +(new Date());
     }
 
-    $(window).resize(function() {
+    $(window).on('resize.poshytip', function() {
         if (!tips.length) { return; }
 
         void (debounce.id && window.clearTimeout(debounce.id));
@@ -40,7 +40,8 @@
         this.$elm = $(elm);
         this.opts = $.extend({}, $.fn.poshytip.defaults, options);
         var idNameHtml = ((this.opts.idName !== '') ? ('id='+this.opts.idName) : '');
-        this.$tip = $(['<div ', idNameHtml,' class="',this.opts.className,'">',
+        this.$tip = $(
+            ['<div ', idNameHtml,' class="',this.opts.className,'">',
                 '<div class="tip-inner tip-bg-image"></div>',
                 '<div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div>',
             '</div>'].join('')).appendTo(document.body);
